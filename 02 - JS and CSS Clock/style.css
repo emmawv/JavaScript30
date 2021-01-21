@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>JS + CSS Clock</title>
-</head>
-<body>
-
-
-    <div class="clock">
-      <div class="clock-face">
-        <div class="hand hour-hand"></div>
-        <div class="hand min-hand"></div>
-        <div class="hand second-hand"></div>
-      </div>
-    </div>
-
-
-  <style>
-    html {
+html {
       background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
       background-size: cover;
       font-family: 'helvetica neue';
@@ -62,13 +43,22 @@
       background: black;
       position: absolute;
       top: 50%;
+      transform-origin: 100%; /* Rotates at the center of the clock, default is 50%, in the center of the element */
+      transform: rotate(90deg);/* Set the hands to 12:00 */
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1); /* Controls how the transition acts */
     }
 
-  </style>
+    .min-hand{
+        width: 40%;
+        margin-left: 10%
+    }
 
-  <script>
+    .hour-hand{
+        width: 30%;
+        margin-left: 20%
+    }
 
-
-  </script>
-</body>
-</html>
+    .fast{
+        transition: all 0s;
+    }
